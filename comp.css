@@ -1,0 +1,60 @@
+li:hover {
+  background-color: purple;
+}
+
+body {
+  background: url(1.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: lightgreen;
+  font-family: monospace;
+  font-size: 110%
+}
+
+body {
+  text-align: center;
+}
+
+li {
+  text-align: left;
+}
+
+div {
+  animation-name: tictacclock;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes tictacclock {
+  0% {
+    transform: rotate(-1deg);
+    margin-right: 5px;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    margin-right: 2px;
+  }
+
+  100% {
+    transform: rotate(-1deg);
+    margin-right: 5px;
+  }
+}
+
+.elements {
+  text-align: left;
+}
+
+p {
+  color: white
+}
+
+a href:hover {
+  background-color: red
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
