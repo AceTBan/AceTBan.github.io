@@ -33,18 +33,22 @@ function botMessage(text) {
 
 // Affichage des options
 function showOptions(buttons) {
-  options.innerHTML = "";
-  buttons.forEach(btn => {
-    const b = document.createElement("button");
-    b.textContent = btn.label;
-    b.onclick = btn.action;
-    options.appendChild(b);
+  options.innerHTML = ""; // Vide les anciens boutons
+
+  buttons.forEach((btn, index) => {
+    setTimeout(() => {
+      const b = document.createElement("button");
+      b.textContent = btn.label;
+      b.onclick = btn.action;
+      b.className = "option-animated"; // Classe pour l'effet CSS
+      options.appendChild(b);
+    }, index * 300); // Décalage de 300ms entre chaque bouton
   });
 }
 
 // Démarrage du bot 
 function startAceBot() {
-  botMessage("Salut moi c'est AceBot a ton service ^^ ");
+  botMessage("Salut moi c'est AceBot à votre service ^^ ");
   setTimeout(() => botMessage("Comment puis‑je aider aujourd’hui ?"), 900);
 
   setTimeout(() => {
