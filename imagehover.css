@@ -843,3 +843,30 @@
     transform: translateY(0);
   }
 }
+/* Conteneur du message */
+.bot-msg {
+  display: flex;               /* Avatar + bulle côte à côte */
+  align-items: flex-start;
+  gap: 10px;                   /* Espace entre avatar et bulle */
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Avatar du bot */
+.bot-avatar {
+  font-size: 28px;             /* Taille de l’emoji */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bulle du message */
+.bot-bubble {
+  background: #1b9cff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  max-width: 80%;
+  line-height: 1.4;
+}

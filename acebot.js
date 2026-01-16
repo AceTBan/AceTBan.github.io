@@ -5,30 +5,41 @@ const typing = document.getElementById("acebot-typing");
 
 // Fonction pour afficher un message du bot avec effet "lettre par lettre"
 function botMessage(text) {
-  typing.style.display = "block"; // Affiche "AceBot écrit…"
+  typing.style.display = "block";
 
   setTimeout(() => {
-    typing.style.display = "none"; // Cache "AceBot écrit…"
+    typing.style.display = "none";
 
+    // Conteneur du message + avatar
     const msg = document.createElement("div");
     msg.className = "bot-msg";
 
-    chat.appendChild(msg);
-    chat.scrollTop = chat.scrollHeight;
+    // Avatar du bot
+    const avatar = document.createElement("div");
+    avatar.className = "bot-avatar";
+    avatar.textContent = "🤖"; // Tu peux mettre une image ici si tu veux
 
-    // Effet de frappe : on ajoute le texte caractère par caractère
+    // Texte du message
+    const bubble = document.createElement("div");
+    bubble.className = "bot-bubble";
+
+    msg.appendChild(avatar);
+    msg.appendChild(bubble);
+    chat.appendChild(msg);
+
+    // Effet de frappe
     let index = 0;
     const interval = setInterval(() => {
-      msg.textContent += text[index]; // Ajoute une lettre
+      bubble.textContent += text[index];
       index++;
 
       if (index >= text.length) {
-        clearInterval(interval); // Stoppe l'intervalle quand tout est écrit
+        clearInterval(interval);
       }
 
-      chat.scrollTop = chat.scrollHeight; // Garde le scroll en bas
-    }, 25); // Vitesse de frappe (25ms par lettre plus le nbr est petit plus il est rapide)
-  }, 400); // Petit délai avant de commencer à écrire
+      chat.scrollTop = chat.scrollHeight;
+    }, 25);
+  }, 400);
 }
 
 // Affichage des options
