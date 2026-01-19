@@ -17,7 +17,7 @@ function botMessage(text) {
     // Avatar du bot
     const avatar = document.createElement("div");
     avatar.className = "bot-avatar";
-    avatar.textContent = "🤖"; // Tu peux mettre une image ici si tu veux
+    avatar.textContent = "🤖"; // mettre une image ou autre ici comme avatar
 
     // Texte du message
     const bubble = document.createElement("div");
@@ -59,15 +59,15 @@ function showOptions(buttons) {
 
 // Démarrage du bot 
 function startAceBot() {
-  botMessage("Salut moi c'est AceBot à votre service ^^ ");
-  setTimeout(() => botMessage("Comment puis‑je aider aujourd’hui ?"), 900);
+  botMessage("Salut c'est moi AceBot à votre service ^^ ");
+  setTimeout(() => botMessage("En quoi puis‑je aider ?"), 900);
 
   setTimeout(() => {
     showOptions([
-      { label: "En savoir plus le concernant ", action: () => redirect("linkedin") },
-      { label: "Voir ses projets", action: () => redirect("github") },
-      { label: "Le contacter directement", action: () => redirect("mail") },
-      { label: "Télécharger son CV", action: () => redirect("cv") }
+      { label: "En savoir plus le concernat ? ", action: () => redirect("linkedin") },
+      { label: "Voir d'anvantage ses projets ?", action: () => redirect("github") },
+      { label: "Le contacter directement ?", action: () => redirect("mail") },
+      { label: "Télécharger son CV ?", action: () => redirect("cv") }
     ]);
   }, 1800);
 }
@@ -77,22 +77,22 @@ function redirect(type) {
   chat.innerHTML = "";
 
   if (type === "linkedin") {
-    botMessage("Pas de soucis je vous envoie vers son LinkedIn !");
+    botMessage("Pas de souci, c'est moi AceBot à votre service!! Je vous envoie vers son LinkedIn .");
     window.open("https://www.linkedin.com/in/david-esteban-31-toulouse/", "_blank");
   }
 
   if (type === "github") {
-    botMessage("Redirection vers ses projets Git !");
+    botMessage("Redirection vers son GitHub imminent, c'est moi AceBot à votre service !!");
     window.open("https://github.com/AceTBan", "_blank");
   }
 
   if (type === "mail") {
-    botMessage("Vous pouvez dès à présent lui écrire un mail.");
+    botMessage("Vous pouvez dès à présent lui écrire un mail. À votre service !!");
     window.location.href = "mailto:esteban_david@ymail.com";
   }
 
   if (type === "cv") {
-    botMessage("Téléchargement du CV en cours...");
+    botMessage("Téléchargement du CV en cours... c'est moi AceBot ");
     window.open("https://drive.google.com/file/d/1ivZ9LWlDYNaaTuh6DVKEI9nkwzju3__X/view?usp=sharing", "_blank");
   }
 }
