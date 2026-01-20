@@ -44,19 +44,20 @@ function botMessage(text) {
 
 // Affichage des options
 function showOptions(buttons) {
-  options.innerHTML = ""; // Vide les anciens boutons
+  options.innerHTML = "";
 
-  buttons.forEach((btn, index) => {
-    setTimeout(() => {
-      const b = document.createElement("button");
-      b.textContent = btn.label;
-      b.onclick = btn.action;
-      b.className = "option-animated"; // Classe pour l'effet CSS
-      options.appendChild(b);
-    }, index * 300); // Décalage de 300ms entre chaque bouton
+  buttons.forEach(btn => {
+    const b = document.createElement("button");
+    b.textContent = btn.label;
+
+    b.onclick = () => {
+      userMessage(btn.label);   // Affiche la réponse dans la bulle utilisateur
+      btn.action();             // Exécute l’action associée
+    };
+
+    options.appendChild(b);
   });
 }
-
 // Démarrage du bot 
 function startAceBot() {
   botMessage("Salut c'est moi AceBot à votre service ^^ ");
@@ -64,7 +65,7 @@ function startAceBot() {
 
   setTimeout(() => {
     showOptions([
-      { label: "En savoir plus le concernat ? ", action: () => redirect("linkedin") },
+      { label: "En savoir plus sur son parcours ? ", action: () => redirect("linkedin") },
       { label: "Voir d'anvantage ses projets ?", action: () => redirect("github") },
       { label: "Le contacter directement ?", action: () => redirect("mail") },
       { label: "Télécharger son CV ?", action: () => redirect("cv") }
@@ -74,7 +75,7 @@ function startAceBot() {
 
 // Redirections
 function redirect(type) {
-  chat.innerHTML = "";
+//  chat.innerHTML = "";          // Vide l'historique conversationnel
 
   if (type === "linkedin") {
     botMessage("Pas de souci, c'est moi AceBot à votre service!! Je vous envoie vers son LinkedIn .");
@@ -95,6 +96,15 @@ function redirect(type) {
     botMessage("Téléchargement du CV en cours... c'est moi AceBot ");
     window.open("https://drive.google.com/file/d/1ivZ9LWlDYNaaTuh6DVKEI9nkwzju3__X/view?usp=sharing", "_blank");
   }
+}
+// Affiche un message utilisateur dans une bulle alignée à droite
+function userMessage(text) {
+  const msg = document.createElement("div");
+  msg.className = "user-msg"; // Style défini dans le CSS
+  msg.textContent = text;
+
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight; // Scroll automatique
 }
 
 // Lancement
