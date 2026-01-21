@@ -53,6 +53,7 @@ function showOptions(buttons) {
     b.onclick = () => {
       userMessage(btn.label);   // Affiche la réponse dans la bulle utilisateur
       btn.action();             // Exécute l’action associée
+    
     };
 
     options.appendChild(b);
@@ -79,23 +80,35 @@ function redirect(type) {
 
   if (type === "linkedin") {
     botMessage("Pas de souci, c'est moi AceBot à votre service!! Je vous envoie vers son LinkedIn .");
+      // L’action est décalée APRÈS la réponse du bot
+  setTimeout(() => {
     window.open("https://www.linkedin.com/in/david-esteban-31-toulouse/", "_blank");
-  }
+  }, 2400);
+}
 
   if (type === "github") {
     botMessage("Redirection vers son GitHub imminent, c'est moi AceBot à votre service !!");
+      // L’action est décalée APRÈS la réponse du bot
+  setTimeout(() => {
     window.open("https://github.com/AceTBan", "_blank");
-  }
+  }, 2400);
+}
 
   if (type === "mail") {
     botMessage("Vous pouvez dès à présent lui écrire un mail. À votre service !!");
+      // L’action est décalée APRÈS la réponse du bot
+  setTimeout(() => {
     window.location.href = "mailto:esteban_david@ymail.com";
-  }
+  }, 2400);
+}
 
   if (type === "cv") {
     botMessage("Téléchargement du CV en cours... c'est moi AceBot ");
+      // L’action est décalée APRÈS la réponse du bot
+  setTimeout(() => {
     window.open("https://drive.google.com/file/d/1ivZ9LWlDYNaaTuh6DVKEI9nkwzju3__X/view?usp=sharing", "_blank");
-  }
+  }, 2400);
+}
 }
 // Affiche un message utilisateur dans une bulle alignée à droite
 function userMessage(text) {
