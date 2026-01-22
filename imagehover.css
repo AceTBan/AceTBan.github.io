@@ -925,3 +925,41 @@
 #acebot-options button:active {
   transform: scale(0.95);
 }
+
+/* ---------- dark mode ---------- */
+
+#acebot {
+  --bot-bg: #ffffff;
+  --bot-text: #000000;
+  --bubble-bg: #4CC3ff;
+  --bubble-text: #ffffff;
+  --user-bubble-bg: #e5e5ea;
+  --user-bubble-text: #000000;
+
+  background: var(--bot-bg);
+  color: var(--bot-text);
+  padding: 15px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+
+}
+
+#acebot.dark-mode {
+  --bot-bg: #000000;
+  --bot-text: #000000;
+  --bubble-bg: #ff3348;
+  --bubble-text: #000000;
+  --user-bubble-bg: #c7c7c7;
+  --user-bubble-text: #000000;
+}
+
+
+.bot-bubble {
+  background: var(--bubble-bg);
+  color: var(--bubble-text);
+}
+
+.user-msg {
+  background: var(--user-bubble-bg);
+  color: var(--user-bubble-text);
+}

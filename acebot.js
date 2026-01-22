@@ -83,7 +83,7 @@ function redirect(type) {
       // L’action est décalée APRÈS la réponse du bot
   setTimeout(() => {
     window.open("https://www.linkedin.com/in/david-esteban-31-toulouse/", "_blank");
-  }, 2400);
+  }, 4000);
 }
 
   if (type === "github") {
@@ -91,7 +91,7 @@ function redirect(type) {
       // L’action est décalée APRÈS la réponse du bot
   setTimeout(() => {
     window.open("https://github.com/AceTBan", "_blank");
-  }, 2400);
+  }, 4000);
 }
 
   if (type === "mail") {
@@ -99,7 +99,7 @@ function redirect(type) {
       // L’action est décalée APRÈS la réponse du bot
   setTimeout(() => {
     window.location.href = "mailto:esteban_david@ymail.com";
-  }, 2400);
+  }, 4000);
 }
 
   if (type === "cv") {
@@ -107,7 +107,7 @@ function redirect(type) {
       // L’action est décalée APRÈS la réponse du bot
   setTimeout(() => {
     window.open("https://drive.google.com/file/d/1ivZ9LWlDYNaaTuh6DVKEI9nkwzju3__X/view?usp=sharing", "_blank");
-  }, 2400);
+  }, 4000);
 }
 }
 // Affiche un message utilisateur dans une bulle alignée à droite
@@ -122,3 +122,18 @@ function userMessage(text) {
 
 // Lancement
 startAceBot();
+
+// Dark mode 
+
+const toggle = document.getElementById("theme-toggle");
+const bot = document.getElementById("acebot");
+
+toggle.onclick = () => {
+  bot.classList.toggle("dark-mode");
+
+  if (bot.classList.contains("dark-mode")) {
+    toggle.textContent = "☀️";
+  } else {
+    toggle.textContent = "🌙";
+  }
+};
