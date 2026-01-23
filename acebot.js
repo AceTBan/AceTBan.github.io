@@ -40,7 +40,7 @@ function botMessage(text) {
       chat.scrollTop = chat.scrollHeight;
     }, 25);
   }, 400);
-}
+};
 
 // Affichage des options
 function showOptions(buttons) {
@@ -58,7 +58,8 @@ function showOptions(buttons) {
 
     options.appendChild(b);
   });
-}
+};
+
 // Démarrage du bot 
 function startAceBot() {
   botMessage("Salut c'est moi AceBot à votre service ^^ ");
@@ -66,13 +67,15 @@ function startAceBot() {
 
   setTimeout(() => {
     showOptions([
-      { label: "En savoir plus sur son parcours ? ", action: () => redirect("linkedin") },
-      { label: "Voir d'anvantage ses projets ?", action: () => redirect("github") },
-      { label: "Le contacter directement ?", action: () => redirect("mail") },
-      { label: "Télécharger son CV ?", action: () => redirect("cv") }
+      { label: "En savoir plus sur son parcours. ", action: () => redirect("linkedin") },
+      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
+      { label: "Le contacter directement.", action: () => redirect("mail") },
+      { label: "Voir son CV.", action: () => redirect("cv") },
+      { label: "Objectif professionnel.", action: () => redirect("objectif") },
+
     ]);
   }, 1800);
-}
+};
 
 // Redirections
 function redirect(type) {
@@ -103,13 +106,33 @@ function redirect(type) {
 }
 
   if (type === "cv") {
-    botMessage("Téléchargement du CV en cours... c'est moi AceBot ");
+    botMessage("Consultation du CV complet en cours... c'est moi AceBot ");
       // L’action est décalée APRÈS la réponse du bot
   setTimeout(() => {
     window.open("https://drive.google.com/file/d/1ivZ9LWlDYNaaTuh6DVKEI9nkwzju3__X/view?usp=sharing", "_blank");
   }, 4000);
 }
+
+if (type === "objectif") {
+  botMessage("L’objectif est de décrocher une alternance en développement web ou en Conception et Développement d’Applications à partir de mars 2026. Intégrer une entreprise qui valorise l’autonomie, la montée en compétences et les projets concrets serait un véritable plus.");          // Message du bot 
+
+  // Option supplementaire proposer après le message ...
+  setTimeout(() => {
+    showOptions([
+      // Redirection vers les compétences
+      { label: "En savoir plus sur son parcours.", action: () => redirect("linkedin") },
+
+      // Redirection vers les projets
+      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
+
+      // Retour au menu principal
+      { label: "Revenir au menu principal", action: () => startAceBot() }
+    ]);
+  }, 800);
 }
+};
+
+
 // Affiche un message utilisateur dans une bulle alignée à droite
 function userMessage(text) {
   const msg = document.createElement("div");
@@ -118,7 +141,7 @@ function userMessage(text) {
 
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight; // Scroll automatique
-}
+};
 
 // Lancement
 startAceBot();

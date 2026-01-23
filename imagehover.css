@@ -963,3 +963,12 @@
   background: var(--user-bubble-bg);
   color: var(--user-bubble-text);
 }
+
+/* bouton du dark mode */
+#theme-toggle {
+  display: inline-flex; /* pas block */
+  cursor: pointer; /* curseur change sur l'emoji */
+  display: inline-flex; /* place l'emoji a droite du chatbot */
+  cursor: pointer;
+  float: right;
+}
