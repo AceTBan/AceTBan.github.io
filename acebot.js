@@ -63,7 +63,7 @@ function showOptions(buttons) {
 // Démarrage du bot 
 function startAceBot() {
   botMessage("Salut c'est moi AceBot à votre service ^^ ");
-  setTimeout(() => botMessage("En quoi puis‑je aider ?"), 900);
+  setTimeout(() => botMessage("En quoi puis‑je aider ?"), 2000);
 
   setTimeout(() => {
     showOptions([
@@ -72,6 +72,8 @@ function startAceBot() {
       { label: "Le contacter directement.", action: () => redirect("mail") },
       { label: "Voir son CV.", action: () => redirect("cv") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
+      { label: "Compétences techniques", action: () => redirect("skills") },
+
 
     ]);
   }, 1800);
@@ -130,6 +132,35 @@ if (type === "objectif") {
     ]);
   }, 800);
 }
+
+if (type === "skills") {
+  // Message principal du bot : introduction aux compétences
+  botMessage("Voici un aperçu des compétences techniques actuelles, qui sont en perpétuelle progression :");
+
+  // Deuxième message avec la liste des compétences
+  setTimeout(() => {
+    botMessage(`
+- Langages : HTML/CSS, JavaScript, Python, php, java .
+- Frameworks : Bootstrap, React, Node.js .
+- Bases de données : MySQL, MongoDB .
+- Outils : Git, VS Code, Figma, Postman  ...
+    `);
+  }, 4000);
+
+  // Suggestions après affichage des compétences
+  setTimeout(() => {
+    showOptions([
+      // Redirection vers les projets pour voir les compétences en action
+      { label: "Voir mes projets en action", action: () => redirect("projects") },
+
+      // Redirection vers le CV
+      { label: "Télécharger mon CV", action: () => redirect("cv") },
+
+      // Retour au menu principal
+      { label: "Revenir au menu principal", action: () => startAceBot() }
+    ]);
+  }, 1200); // on laisse un petit délai pour que les messages aient le temps d’apparaître
+}
 };
 
 
@@ -142,6 +173,7 @@ function userMessage(text) {
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight; // Scroll automatique
 };
+
 
 // Lancement
 startAceBot();
