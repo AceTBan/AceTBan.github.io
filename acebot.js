@@ -73,6 +73,7 @@ function startAceBot() {
       { label: "Voir son CV.", action: () => redirect("cv") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
       { label: "Compétences techniques", action: () => redirect("skills") },
+      { label: "Quel âge a-t-il ?", action: () => redirect("age") },
 
 
     ]);
@@ -151,7 +152,7 @@ if (type === "skills") {
   setTimeout(() => {
     showOptions([
       // Redirection vers les projets pour voir les compétences en action
-      { label: "Voir mes projets en action", action: () => redirect("projects") },
+      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 
       // Redirection vers le CV
       { label: "Télécharger mon CV", action: () => redirect("cv") },
@@ -161,8 +162,30 @@ if (type === "skills") {
     ]);
   }, 1200); // on laisse un petit délai pour que les messages aient le temps d’apparaître
 }
-};
 
+if (type === "age") {
+  botMessage("31 ans.");
+
+  setTimeout(() => {
+    botMessage(`
+    Mais pas de panique puisqu'il bénéficie d’une RQTH (Reconnaissance de la Qualité de Travailleur Handicapé),
+
+Son âge n’est donc pas un frein à l’alternance, bien au contraire . 
+    `);
+  }, 1000);
+
+  setTimeout(() => {
+    showOptions([
+      { label: "En savoir plus sur la RQTH", action: () => redirect("rqth") },
+      { label: "Objectif professionnel.", action: () => redirect("objectif") },
+      { label: "Revenir au menu", action: () => startAceBot() }
+    ]);
+  }, 2000);
+}
+
+
+
+};
 
 // Affiche un message utilisateur dans une bulle alignée à droite
 function userMessage(text) {
@@ -173,7 +196,6 @@ function userMessage(text) {
   chat.appendChild(msg);
   chat.scrollTop = chat.scrollHeight; // Scroll automatique
 };
-
 
 // Lancement
 startAceBot();
