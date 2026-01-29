@@ -183,7 +183,25 @@ Son âge n’est donc pas un frein à l’alternance, bien au contraire .
   }, 2000);
 }
 
+if (type === "rqth") {
+  botMessage("La RQTH est une reconnaissance officielle qui permet d'accéder à certains dispositifs .");
 
+  setTimeout(() => {
+    botMessage(`
+Dans son cas, elle n’implique aucun aménagement spécifique.   
+Elle permet simplement de bénéficier d’un accompagnement, et peut représenter un certain avantage pour l’entreprise (aides, primes, accompagnement RH, etc.).
+
+    `);
+  }, 4000);
+
+  setTimeout(() => {
+    showOptions([
+      { label: "Voir ses compétences", action: () => redirect("skills") },
+      { label: "Télécharger son CV", action: () => redirect("cv") },
+      { label: "Revenir au menu", action: () => startAceBot() }
+    ]);
+  }, 1500);
+}
 
 };
 
