@@ -129,7 +129,7 @@ if (type === "objectif") {
       { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 
       // Retour au menu principal
-      { label: "Revenir au menu principal", action: () => startAceBot() }
+      { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
 }
@@ -155,10 +155,10 @@ if (type === "skills") {
       { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 
       // Redirection vers le CV
-      { label: "Télécharger mon CV", action: () => redirect("cv") },
+      { label: "Voir son CV.", action: () => redirect("cv") },
 
       // Retour au menu principal
-      { label: "Revenir au menu principal", action: () => startAceBot() }
+      { label: "Retour", action: () => startAceBot() }
     ]);
   }, 1200); // on laisse un petit délai pour que les messages aient le temps d’apparaître
 }
@@ -178,7 +178,8 @@ Son âge n’est donc pas un frein à l’alternance, bien au contraire .
     showOptions([
       { label: "En savoir plus sur la RQTH", action: () => redirect("rqth") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
-      { label: "Revenir au menu", action: () => startAceBot() }
+      { label: "Posture professionnel", action: () => redirect("posture_professionnel") },
+      { label: "Retour", action: () => startAceBot() }
     ]);
   }, 2000);
 }
@@ -198,9 +199,32 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
     showOptions([
       { label: "Voir ses compétences", action: () => redirect("skills") },
       { label: "Télécharger son CV", action: () => redirect("cv") },
-      { label: "Revenir au menu", action: () => startAceBot() }
+      { label: "Retour", action: () => startAceBot() }
     ]);
   }, 1500);
+}
+
+if (type === "posture_professionnel") {
+  botMessage(`
+Voici une synthèse de son profil professionnel :
+
+Un profil créatif et rigoureux, capable d’apprendre vite et de s’adapter facilement.  
+Son fonctionnement repose sur l’analyse, la conception et l’amélioration continue.  
+Il est autonome, respectueux, ouvert d’esprit et orienté vers l’action.
+
+  `);
+
+  setTimeout(() => {
+    showOptions([
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 1000);
 }
 
 };
