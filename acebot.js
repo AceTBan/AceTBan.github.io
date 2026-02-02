@@ -205,14 +205,15 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
 }
 
 if (type === "posture_professionnel") {
-  botMessage(`
-Voici une synthèse de son profil professionnel :
+  botMessage("Voici une synthèse de son profil professionnel :");
 
-Un profil créatif et rigoureux, capable d’apprendre vite et de s’adapter facilement.  
-Son fonctionnement repose sur l’analyse, la conception et l’amélioration continue.  
-Il est autonome, respectueux, ouvert d’esprit et orienté vers l’action.
-
-  `);
+  setTimeout(() => {
+    botMessage(`
+    Un profil créatif et rigoureux, capable d’apprendre vite et de s’adapter facilement.  
+    Son fonctionnement repose sur l’analyse, la conception et l’amélioration continue.  
+    Il est autonome, respectueux, ouvert d’esprit et orienté vers l’action.
+    `);
+  }, 2500);
 
   setTimeout(() => {
     showOptions([
