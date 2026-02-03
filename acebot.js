@@ -217,7 +217,7 @@ if (type === "posture_professionnel") {
 
   setTimeout(() => {
     showOptions([
-      { label: " ", action: () => redirect(" ") },
+      { label: "Source", action: () => redirect("source") },
       { label: " ", action: () => redirect(" ") },
       { label: " ", action: () => redirect(" ") },
       { label: " ", action: () => redirect(" ") },
@@ -226,6 +226,21 @@ if (type === "posture_professionnel") {
       { label: "Retour", action: () => startAceBot() }
     ]);
   }, 1000);
+}
+
+if (type === "source") {
+  botMessage(`
+  Selon une étude réalisée par AssessFirst plateforme française d’évaluation prédictive utilisée pour le recrutement et la gestion des talents .
+  `);
+
+  setTimeout(() => {
+    showOptions([
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: " ", action: () => redirect(" ") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
 }
 
 };
