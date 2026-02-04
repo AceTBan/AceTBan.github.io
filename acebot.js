@@ -67,12 +67,13 @@ function startAceBot() {
 
   setTimeout(() => {
     showOptions([
-      { label: "En savoir plus sur son parcours. ", action: () => redirect("linkedin") },
-      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
       { label: "Le contacter directement.", action: () => redirect("mail") },
-      { label: "Voir son CV.", action: () => redirect("cv") },
+//      { label: "En savoir plus sur son parcours. ", action: () => redirect("linkedin") },
+//      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
+//      { label: "Voir son CV.", action: () => redirect("cv") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
-      { label: "Compétences techniques", action: () => redirect("skills") },
+//     { label: "Compétences techniques", action: () => redirect("skills") },
+      { label: "Zone Géogrphique", action: () => redirect("zone_geo") },
       { label: "Quel âge a-t-il ?", action: () => redirect("age") },
 
 
@@ -129,7 +130,7 @@ if (type === "objectif") {
       { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 
       // Retour au menu principal
-      { label: "Retour", action: () => startAceBot() }
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 800);
 }
@@ -158,7 +159,7 @@ if (type === "skills") {
       { label: "Voir son CV.", action: () => redirect("cv") },
 
       // Retour au menu principal
-      { label: "Retour", action: () => startAceBot() }
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 1200); // on laisse un petit délai pour que les messages aient le temps d’apparaître
 }
@@ -179,7 +180,7 @@ Son âge n’est donc pas un frein à l’alternance, bien au contraire .
       { label: "En savoir plus sur la RQTH", action: () => redirect("rqth") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
       { label: "Posture professionnel", action: () => redirect("posture_professionnel") },
-      { label: "Retour", action: () => startAceBot() }
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 2000);
 }
@@ -197,9 +198,10 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
 
   setTimeout(() => {
     showOptions([
+      { label: "Posture professionnel", action: () => redirect("posture_professionnel") },
       { label: "Voir ses compétences", action: () => redirect("skills") },
       { label: "Télécharger son CV", action: () => redirect("cv") },
-      { label: "Retour", action: () => startAceBot() }
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 1500);
 }
@@ -218,12 +220,12 @@ if (type === "posture_professionnel") {
   setTimeout(() => {
     showOptions([
       { label: "Source", action: () => redirect("source") },
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: "Retour", action: () => startAceBot() }
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 1000);
 }
@@ -235,10 +237,40 @@ if (type === "source") {
 
   setTimeout(() => {
     showOptions([
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: " ", action: () => redirect(" ") },
-      { label: "Retour", action: () => startAceBot() }
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+      { label: "Accueil", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
+
+if (type === "zone_geo") {
+  botMessage(`
+
+
+Basé entre Toulouse et Tarbes, cela permet d’être mobile sur une zone très large dans le Sud‑Ouest.
+
+Véhiculé, ce qui facilite les déplacements réguliers ou ponctuels.
+`);
+
+setTimeout(() => {
+  botMessage(`
+  Peux donc intervenir facilement sur :
+  • Toulouse et toute sa métropole  
+  • Blagnac, Colomiers, Tournefeuille  
+  • Muret, Portet, Labège, Ramonville  
+  • Tarbes, Lourdes, Lannemezan 
+  • Gers 
+  • Et plus largement toute l’Occitanie et le Sud‑Ouest selon les besoins.
+  `);
+}, 6000);
+
+  setTimeout(() => {
+    showOptions([
+      { label: "Objectif professionnel", action: () => redirect("objectif") },
+      { label: "Profil professionnel", action: () => redirect("profil") },
+      { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 800);
 }
