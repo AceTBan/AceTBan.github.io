@@ -268,12 +268,33 @@ setTimeout(() => {
 
   setTimeout(() => {
     showOptions([
+      { label: "Télétravail", action: () => redirect("télétravail") },
       { label: "Objectif professionnel", action: () => redirect("objectif") },
       { label: "Profil professionnel", action: () => redirect("profil") },
       { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 800);
 }
+
+if (type === "télétravail") {
+  botMessage(`
+  Ouvert au télétravail partiel ou total, au mode hybride ou aux déplacements selon l’organisation et les besoin de l’entreprise.
+  `);
+
+  setTimeout(() => {
+    showOptions([
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+  //    { label: " ", action: () => redirect(" ") },
+      { label: "Accueil", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
+
+
+
+
+
 
 };
 
