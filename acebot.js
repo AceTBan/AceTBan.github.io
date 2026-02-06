@@ -129,6 +129,8 @@ if (type === "objectif") {
       // Redirection vers les projets
       { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 
+      { label: "Horizon professionnel", action: () => redirect("horizon") },
+
       // Retour au menu principal
       { label: "Accueil", action: () => startAceBot() }
     ]);
@@ -292,9 +294,38 @@ if (type === "télétravail") {
 }
 
 
+ if (type === "horizon") {
+  botMessage(`Court terme
+  Obtenir le titre de Concepteur Développeur d’Applications (CDA)
+  — Consolider les bases techniques, monter en compétences, commencer à construire un portfolio solide.
+ `);
 
+  setTimeout(() => {
+    botMessage(` 
+     Moyen terme 
+    Évoluer vers du développement narratif
+    — Se spécialiser dans l’écriture interactive, le game design narratif, les outils narratifs (Ink, Yarn Spinner…), et travailler sur des projets qui mêlent code et storytelling.
+   
+    `);
+  }, 6000); 
+ 
+  setTimeout(() => {
+    botMessage(` 
+    Long terme 
+   Travailler à l’étranger
+   — Intégrer un studio international, découvrir d’autres cultures professionnelles, élargir son réseau et ses opportunités.
+   `);
+  }, 12000);
 
-
+  setTimeout(() => {
+    showOptions([
+//      { label: " ", action: () => redirect(" ") },
+//      { label: " ", action: () => redirect(" ") },
+//      { label: " ", action: () => redirect(" ") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
 
 };
 
