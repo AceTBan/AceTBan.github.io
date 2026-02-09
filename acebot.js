@@ -321,11 +321,27 @@ if (type === "télétravail") {
     showOptions([
 //      { label: " ", action: () => redirect(" ") },
 //      { label: " ", action: () => redirect(" ") },
-//      { label: " ", action: () => redirect(" ") },
+				 { label: "Centre d'intérêts", action: () => redirect("hobby") },
+   	 	   { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
+
+if (type === "hobby") {
+  botMessage(`Un ensemble de centres d’intérêt mêlant game design, technologies 3D et musicale — trois domaines où l’autodidactie me permet d’explorer constamment de nouvelles idées.
+
+   `);
+
+  setTimeout(() => {
+    showOptions([
+   //   { label: " ", action: () => redirect(" ") },
+   //   { label: " ", action: () => redirect(" ") },
+   //   { label: " ", action: () => redirect(" ") },
       { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
 }
+
 
 };
 
