@@ -321,8 +321,8 @@ if (type === "télétravail") {
     showOptions([
 //      { label: " ", action: () => redirect(" ") },
 //      { label: " ", action: () => redirect(" ") },
-				 { label: "Centre d'intérêts", action: () => redirect("hobby") },
-   	 	   { label: "Retour", action: () => startAceBot() }
+     { label: "Centre d'intérêts", action: () => redirect("hobby") },
+     { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
 }
@@ -336,12 +336,30 @@ if (type === "hobby") {
     showOptions([
    //   { label: " ", action: () => redirect(" ") },
    //   { label: " ", action: () => redirect(" ") },
-   //   { label: " ", action: () => redirect(" ") },
+      { label: "Game design", action: () => redirect("game_design") },
       { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
 }
 
+if (type === "game_design") {
+  botMessage(`Le game design réunit plusieurs disciplines créatives.
+  Il y a la création narrative, qui permet de donner vie à des histoires, de construire des univers et de façonner des personnages qui évoluent selon leurs propres logiques.
+  Il y a aussi le concept art, un moyen de visualiser les environnements, les ambiances et les idées à travers le dessin.
+  Et puis le level design, cette manière de transformer une idée en un espace cohérent et immersif.
+  Expérimenté, testé, apprend en créant, afin d'avoir toujours une nouvelle occasion d’explorer un angle différent
+
+   `);
+
+  setTimeout(() => {
+    showOptions([
+//      { label: " ", action: () => redirect(" ") },
+//      { label: " ", action: () => redirect(" ") },
+//      { label: " ", action: () => redirect(" ") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
 
 };
 
