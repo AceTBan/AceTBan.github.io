@@ -63,7 +63,7 @@ function showOptions(buttons) {
 // Démarrage du bot 
 function startAceBot() {
   botMessage("Salut c'est moi AceBot à votre service ^^ ");
-  setTimeout(() => botMessage("En quoi puis‑je aider ?"), 2000);
+  setTimeout(() => botMessage("En quoi puis‑je être utile ?"), 2000);
 
   setTimeout(() => {
     showOptions([
@@ -307,7 +307,7 @@ if (type === "télétravail") {
     — Se spécialiser dans l’écriture interactive, le game design narratif, les outils narratifs (Ink, Yarn Spinner…), et travailler sur des projets qui mêlent code et storytelling.
    
     `);
-  }, 6000); 
+  }, 7000); 
  
   setTimeout(() => {
     botMessage(` 
@@ -315,7 +315,7 @@ if (type === "télétravail") {
    Travailler à l’étranger
    — Intégrer un studio international, découvrir d’autres cultures professionnelles, élargir son réseau et ses opportunités.
    `);
-  }, 12000);
+  }, 15000);
 
   setTimeout(() => {
     showOptions([
@@ -328,14 +328,14 @@ if (type === "télétravail") {
 }
 
 if (type === "hobby") {
-  botMessage(`Un ensemble de centres d’intérêt mêlant game design, technologies 3D et musicale — trois domaines où l’autodidactie me permet d’explorer constamment de nouvelles idées.
+  botMessage(`Un ensemble de centres d’intérêt mêlant game design, technologies 3D et musicale — trois domaines où l’autodidactie permet d’explorer constamment de nouvelles idées.
 
    `);
 
   setTimeout(() => {
     showOptions([
    //   { label: " ", action: () => redirect(" ") },
-   //   { label: " ", action: () => redirect(" ") },
+      { label: "Musique", action: () => redirect("sound_design") },
       { label: "Game design", action: () => redirect("game_design") },
       { label: "Retour", action: () => startAceBot() }
     ]);
@@ -355,7 +355,24 @@ if (type === "game_design") {
     showOptions([
 //      { label: " ", action: () => redirect(" ") },
 //      { label: " ", action: () => redirect(" ") },
+      { label: "Musique", action: () => redirect("sound_design") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
+
+if (type === "sound_design") {
+  botMessage(`
+  Dans l’univers musical, le sound design occupe une place particulière : c’est l’art de créer des sons, des textures et des ambiances qui n’existent pas encore, de façonner l’identité sonore d’un projet, d’un univers ou d’une émotion.
+  Le mixage et le mastering viennent ensuite affiner tout cela, en équilibrant, en polissant et en donnant une cohérence à l’ensemble, comme si chaque élément trouvait enfin sa place.
+  C’est un domaine où l’expérimentation est reine : tester des plugins, manipuler des samples, enregistrer des bruits du quotidien, transformer une idée abstraite en sensation auditive.
+  Là encore, l’autodidactie joue un rôle central : on apprend en écoutant, en essayant, en se trompant, en recommençant… et en laissant la curiosité guider la création sonore. `);
+
+  setTimeout(() => {
+    showOptions([
 //      { label: " ", action: () => redirect(" ") },
+//      { label: " ", action: () => redirect(" ") },
+      { label: "Game design", action: () => redirect("game_design") },
       { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
