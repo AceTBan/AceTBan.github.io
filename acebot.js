@@ -334,7 +334,7 @@ if (type === "hobby") {
 
   setTimeout(() => {
     showOptions([
-   //   { label: " ", action: () => redirect(" ") },
+      { label: "HighTech", action: () => redirect("high_tech") },
       { label: "Musique", action: () => redirect("sound_design") },
       { label: "Game design", action: () => redirect("game_design") },
       { label: "Retour", action: () => startAceBot() }
@@ -354,7 +354,7 @@ if (type === "game_design") {
   setTimeout(() => {
     showOptions([
 //      { label: " ", action: () => redirect(" ") },
-//      { label: " ", action: () => redirect(" ") },
+      { label: "HighTech", action: () => redirect("high_tech") },
       { label: "Musique", action: () => redirect("sound_design") },
       { label: "Retour", action: () => startAceBot() }
     ]);
@@ -371,7 +371,24 @@ if (type === "sound_design") {
   setTimeout(() => {
     showOptions([
 //      { label: " ", action: () => redirect(" ") },
-//      { label: " ", action: () => redirect(" ") },
+      { label: "HighTech", action: () => redirect("high_tech") },
+      { label: "Game design", action: () => redirect("game_design") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 800);
+}
+
+if (type === "high_tech") {
+  botMessage(`Dans le domaine HighTech, la modélisation 3D sert de laboratoire créatif : c’est là que naissent des formes, des personnages ou des objets qui n’existent d’abord que dans l’esprit.
+  L’impression 3D, notamment en résine, permet ensuite de matérialiser ces idées. Figurines, pièces sur mesure, petits prototypes… cette technologie offre une liberté presque totale, comme si chaque concept pouvait trouver sa version physique.
+  Vient enfin la customisation, un espace d’expression à part entière : poncer, assembler, peindre, retoucher… donner du caractère à chaque création, la transformer en pièce unique.
+  C’est un ensemble de pratiques où l’expérimentation et l’apprentissage autonome sont au cœur du processus, et où chaque projet devient une occasion de façonner quelque chose de concret, d’original et parfois même d’inattendu.
+  
+   `);
+
+  setTimeout(() => {
+    showOptions([
+      { label: "Musique", action: () => redirect("sound_design") },
       { label: "Game design", action: () => redirect("game_design") },
       { label: "Retour", action: () => startAceBot() }
     ]);
