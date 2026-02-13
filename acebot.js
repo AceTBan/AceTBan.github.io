@@ -144,11 +144,43 @@ if (type === "skills") {
   // Deuxième message avec la liste des compétences
   setTimeout(() => {
     botMessage(`
-- Langages : HTML/CSS, JavaScript, Python, php, java .
-- Frameworks : Bootstrap, React, Node.js .
-- Bases de données : MySQL, MongoDB .
-- Outils : Git, VS Code, Figma, Postman  ...
-    `);
+    
+    Langages  :
+    HTML5 / CSS3  
+    JavaScript  
+    Python  
+    PHP  
+    Java  
+    
+    Frameworks et environnements  :
+    Bootstrap  
+    Django  
+    React  
+    Node.js  
+    
+    Bases de données  :
+    MySQL  
+    SQL  
+    MongoDB (NoSQL)
+    
+    Outils et logiciels  :
+    Git / GitLab / GitHub Desktop  
+    VS Code  
+    Postman  
+    Figma  
+    Canva  
+    Photoshop  
+    PhpMyAdmin  
+    Docker  
+    Oracle VM  
+    GNS3  
+    Linux / macOS / Windows  
+    Sublime Text  
+    Atom  
+    Eclipse IDE  
+    Dia (schémas / UML)
+
+  `);
   }, 4000);
 
   // Suggestions après affichage des compétences
