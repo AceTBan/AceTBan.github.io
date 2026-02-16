@@ -72,7 +72,7 @@ function startAceBot() {
 //      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 //      { label: "Voir son CV.", action: () => redirect("cv") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
-//     { label: "Compétences techniques", action: () => redirect("skills") },
+     { label: "Compétences techniques", action: () => redirect("skills") },
       { label: "Zone Géogrphique", action: () => redirect("zone_geo") },
       { label: "Quel âge a-t-il ?", action: () => redirect("age") },
 
@@ -151,18 +151,28 @@ if (type === "skills") {
     Python  
     PHP  
     Java  
-    
+  `);
+  }, 4000);
+
+  setTimeout(() => {
+    botMessage(` 
     Frameworks et environnements  :
     Bootstrap  
     Django  
     React  
-    Node.js  
-    
+    Node.js  `);
+  }, 8000); 
+ 
+  setTimeout(() => {
+    botMessage(` 
     Bases de données  :
     MySQL  
     SQL  
-    MongoDB (NoSQL)
-    
+    MongoDB (NoSQL)`);
+  }, 12000);
+
+  setTimeout(() => {
+    botMessage(` 
     Outils et logiciels  :
     Git / GitLab / GitHub Desktop  
     VS Code  
@@ -178,10 +188,10 @@ if (type === "skills") {
     Sublime Text  
     Atom  
     Eclipse IDE  
-    Dia (schémas / UML)
-
-  `);
-  }, 4000);
+    Dia (schémas / UML) `);
+  }, 15000); 
+ 
+ 
 
   // Suggestions après affichage des compétences
   setTimeout(() => {
