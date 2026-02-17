@@ -466,3 +466,14 @@ toggle.onclick = () => {
     toggle.textContent = "🌙";
   }
 };
+
+
+console.log(`
+          (wouaf)
+      \\
+      (o>
+   \\_//)
+    \_/_)
+     _|_
+
+ `);
