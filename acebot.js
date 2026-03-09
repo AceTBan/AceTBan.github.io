@@ -222,6 +222,7 @@ Son âge n’est donc pas un frein à l’alternance, bien au contraire .
   setTimeout(() => {
     showOptions([
       { label: "En savoir plus sur la RQTH", action: () => redirect("rqth") },
+      { label: "Avantages RQTH", action: () => redirect("avantages_rqth") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
       { label: "Posture professionnel", action: () => redirect("posture_professionnel") },
       { label: "Accueil", action: () => startAceBot() }
@@ -242,6 +243,7 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
 
   setTimeout(() => {
     showOptions([
+      { label: "Avantages RQTH", action: () => redirect("avantages_rqth") },
       { label: "Posture professionnel", action: () => redirect("posture_professionnel") },
       { label: "Voir ses compétences", action: () => redirect("skills") },
       { label: "Télécharger son CV", action: () => redirect("cv") },
@@ -435,6 +437,50 @@ if (type === "high_tech") {
       { label: "Retour", action: () => startAceBot() }
     ]);
   }, 800);
+}
+
+if (type === "avantages_rqth") {
+  botMessage(`
+D'apres le nouveau décret d'apprentissage du 6 mars 2026 n°2026-168  `);
+  setTimeout(() => {
+    botMessage(`
+    Un employeur qui recrute un apprenti RQTH peut bénéficier :  
+
+`);
+  }, 3000);
+  setTimeout(() => {
+    botMessage(`        • d’une aide pouvant aller jusqu’à 6 000 € la première année  
+
+   `);
+  }, 7000);
+  setTimeout(() => {
+    botMessage(`        • d’une sécurisation des aides jusqu’au 1er janvier 2027  
+
+   `);
+  }, 10000);
+  setTimeout(() => {
+    botMessage(`        • d’un soutien renforcé pour l’intégration et l’accompagnement  
+
+   `);
+  }, 13000);
+  setTimeout(() => {
+    botMessage(`       • d’un dispositif simplifié pour les entreprises de toutes tailles  
+ 
+   `);
+  }, 17000);
+  setTimeout(() => {
+    botMessage(`    
+    Ces mesures rendent l’embauche d’un apprenti RQTH plus attractive et mieux soutenue financièrement.
+    Alors, profitez-en ^^
+    `);
+  }, 20000);
+  setTimeout(() => {
+    showOptions([
+      { label: "Le contacter directement.", action: () => redirect("mail") },
+      { label: "Retour RQTH", action: () => redirect("rqth") },
+      { label: "Accueil", action: () => startAceBot() }
+    ]);
+  }, 500);
 }
 
 };
