@@ -331,8 +331,8 @@ if (type === "télétravail") {
     showOptions([
   //    { label: " ", action: () => redirect(" ") },
   //    { label: " ", action: () => redirect(" ") },
-  //    { label: " ", action: () => redirect(" ") },
-      { label: "Accueil", action: () => startAceBot() }
+        { label: "En attendant un contrat, que fait-il ?", action: () => redirect("activite_actuelle") },
+        { label: "Accueil", action: () => startAceBot() }
     ]);
   }, 800);
 }
@@ -482,6 +482,31 @@ D'apres le nouveau décret d'apprentissage du 6 mars 2026 n°2026-168  `);
     ]);
   }, 500);
 }
+
+if (type === "activite_actuelle") {
+  botMessage(`
+Même sans contrat actuellement, il reste pleinement actif dans son parcours professionnel.  
+La recherche d’un emploi est devenue un travail à part entière : candidatures, ciblage d’entreprises, mails, entretiens, organisation…`);
+  setTimeout(() => {
+    botMessage(`    
+    Cependant en parallèle, il continue de se former en autodidacte :  
+    • cours en ligne (Udemy, Google, OpenClassrooms)  
+    • certifications et modules techniques  
+    • projets personnels pour progresser  
+    • veille technologique régulière  
+    
+    Cette démarche montre une vraie motivation et une volonté constante d’avancer de sa part .
+      
+    `);
+  }, 2000);
+  setTimeout(() => {
+    showOptions([
+      { label: "Voir ses compétences", action: () => redirect("skills") },
+      { label: "Retour", action: () => startAceBot() }
+    ]);
+  }, 1500);
+}
+
 
 };
 
