@@ -72,7 +72,7 @@ function startAceBot() {
 //      { label: "Voir d'anvantage ses projets.", action: () => redirect("github") },
 //      { label: "Voir son CV.", action: () => redirect("cv") },
       { label: "Objectif professionnel.", action: () => redirect("objectif") },
-     { label: "Compétences techniques", action: () => redirect("skills") },
+      { label: "Compétences techniques", action: () => redirect("skills") },
       { label: "Zone Géogrphique", action: () => redirect("zone_geo") },
       { label: "Quel âge a-t-il ?", action: () => redirect("age") },
 
@@ -498,7 +498,7 @@ La recherche d’un emploi est devenue un travail à part entière : candidature
     Cette démarche montre une vraie motivation et une volonté constante d’avancer de sa part .
       
     `);
-  }, 2000);
+  }, 4000);
   setTimeout(() => {
     showOptions([
       { label: "Voir ses compétences", action: () => redirect("skills") },
