@@ -567,9 +567,20 @@ toggle.onclick = () => {
   } else {
     toggle.textContent = "🌙";
   }
+
+  // === CODE DES SUCCÈS ICI ===
+  const badge = document.getElementById('badge-dark');
+  if (badge) {
+    badge.classList.add('active');
+  }
+  const compteur = document.getElementById('compteur');
+  if (compteur) {
+    compteur.innerText = "1"; // Le compteur passe à 1
+  }
 };
 
 console.log(`
+  
           (wouaf)
       \\
       (o>

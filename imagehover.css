@@ -1075,3 +1075,53 @@
     max-width: 100%;
   }
 }
+/* Style de base des badges (verrouillés) */
+/* Style de base des badges personnalisés (verrouillés) */
+.badge-custom {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #222;
+    color: #666; /* Texte bien grisé */
+    border-radius: 50px; /* Effet pilule arrondi */
+    opacity: 0.5;
+    transition: all 0.3s ease-in-out;
+    border: 2px dashed #444;
+    font-weight: bold;
+    cursor: default;
+}
+
+/* Style quand le badge passe en mode ACTIF */
+.badge-custom.active {
+    background-color: #2ecc71; /* Vert flashy sympa */
+    color: white;
+    opacity: 1;
+    border: 2px solid #27ae60;
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.6);
+    transform: scale(1.08); /* Petit effet de zoom stylé */
+}
+
+/* Style de la notification pop-up */
+#notification-succes {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    border-left: 5px solid #2ecc71;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    z-index: 1000;
+}
+
+.notification-cachee {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+}
+
+.notification-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
