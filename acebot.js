@@ -579,6 +579,42 @@ toggle.onclick = () => {
   }
 };
 
+// crée deux variables pour savoir s'il a cliqué sur les vidéos
+let videoSimplonCliquee = false;
+let videoIscodCliquee = false;
+
+// Fonction pour la vidéo Simplon
+function clicVideoSimplon() {
+    videoSimplonCliquee = true;
+    verifierSuccesCinephile(); // vérifie si les deux sont cliquées
+}
+
+// Fonction pour la vidéo Iscod
+function clicVideoIscod() {
+    videoIscodCliquee = true;
+    verifierSuccesCinephile(); // vérifie si les deux sont cliquées
+}
+
+// La fonction qui allume le badge UNIQUEMENT si les deux sont à 'true'
+function verifierSuccesCinephile() {
+    if (videoSimplonCliquee && videoIscodCliquee) {
+        
+        const badge = document.getElementById('badge-cinephile');
+        
+        // vérifie s'il n'est pas déjà actif pour ne pas rajouter +1 au compteur pour rien
+        if (badge && !badge.classList.contains('active')) {
+            badge.classList.add('active'); // Devient vert !
+            
+            // augmente le compteur
+            const compteur = document.getElementById('compteur');
+            if (compteur) {
+                let actuel = parseInt(compteur.innerText) || 0;
+                compteur.innerText = actuel + 1;
+            }
+        }
+    }
+}
+
 console.log(`
   
           (wouaf)
