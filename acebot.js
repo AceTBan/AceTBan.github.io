@@ -579,33 +579,32 @@ toggle.onclick = () => {
   }
 };
 
-// crée deux variables pour savoir s'il a cliqué sur les vidéos
 let videoSimplonCliquee = false;
 let videoIscodCliquee = false;
 
-// Fonction pour la vidéo Simplon
-function clicVideoSimplon() {
-    videoSimplonCliquee = true;
-    verifierSuccesCinephile(); // vérifie si les deux sont cliquées
+function clicVideoSimplon(element, url) {
+    if (!videoSimplonCliquee) {
+        videoSimplonCliquee = true;
+        // remplace l'image par la vraie iframe YouTube
+        element.innerHTML = `<iframe width="250" height="250" src="${url}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        verifierSuccesCinephile();
+    }
 }
 
-// Fonction pour la vidéo Iscod
-function clicVideoIscod() {
-    videoIscodCliquee = true;
-    verifierSuccesCinephile(); // vérifie si les deux sont cliquées
+function clicVideoIscod(element, url) {
+    if (!videoIscodCliquee) {
+        videoIscodCliquee = true;
+        // remplace l'image par la vraie iframe YouTube
+        element.innerHTML = `<iframe width="250" height="250" src="${url}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+        verifierSuccesCinephile();
+    }
 }
 
-// La fonction qui allume le badge UNIQUEMENT si les deux sont à 'true'
 function verifierSuccesCinephile() {
     if (videoSimplonCliquee && videoIscodCliquee) {
-        
         const badge = document.getElementById('badge-cinephile');
-        
-        // vérifie s'il n'est pas déjà actif pour ne pas rajouter +1 au compteur pour rien
         if (badge && !badge.classList.contains('active')) {
-            badge.classList.add('active'); // Devient vert !
-            
-            // augmente le compteur
+            badge.classList.add('active');
             const compteur = document.getElementById('compteur');
             if (compteur) {
                 let actuel = parseInt(compteur.innerText) || 0;
@@ -614,6 +613,7 @@ function verifierSuccesCinephile() {
         }
     }
 }
+
 
 console.log(`
   
