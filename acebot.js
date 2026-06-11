@@ -569,51 +569,44 @@ toggle.onclick = () => {
   }
 
   // === CODE DES SUCCÈS ICI ===
-  const badge = document.getElementById('badge-dark');
+  const badge = document.getElementById("badge-dark");
   if (badge) {
-    badge.classList.add('active');
+    badge.classList.add("active");
   }
-  const compteur = document.getElementById('compteur');
+  const compteur = document.getElementById("compteur");
   if (compteur) {
     compteur.innerText = "1"; // Le compteur passe à 1
   }
 };
 
-let videoSimplonCliquee = false;
-let videoIscodCliquee = false;
+let invisibleSimplon = false;
+let invisibleIscod = false;
 
-function clicVideoSimplon(element, url) {
-    if (!videoSimplonCliquee) {
-        videoSimplonCliquee = true;
-        // remplace l'image par la vraie iframe YouTube
-        element.innerHTML = `<iframe width="250" height="250" src="${url}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        verifierSuccesCinephile();
-    }
+function clicIscod(element) {
+  invisibleIscod = true;
+  element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+  verifierCinephile();
 }
 
-function clicVideoIscod(element, url) {
-    if (!videoIscodCliquee) {
-        videoIscodCliquee = true;
-        // remplace l'image par la vraie iframe YouTube
-        element.innerHTML = `<iframe width="250" height="250" src="${url}?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-        verifierSuccesCinephile();
-    }
+function clicSimplon(element) {
+  invisibleSimplon = true;
+  element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+  verifierCinephile();
 }
 
-function verifierSuccesCinephile() {
-    if (videoSimplonCliquee && videoIscodCliquee) {
-        const badge = document.getElementById('badge-cinephile');
-        if (badge && !badge.classList.contains('active')) {
-            badge.classList.add('active');
-            const compteur = document.getElementById('compteur');
-            if (compteur) {
-                let actuel = parseInt(compteur.innerText) || 0;
-                compteur.innerText = actuel + 1;
-            }
-        }
+function verifierCinephile() {
+  if (invisibleSimplon && invisibleIscod) {
+    const badge = document.getElementById("badge-cinephile");
+    if (badge && !badge.classList.contains("active")) {
+      badge.classList.add("active");
+      const compteur = document.getElementById("compteur");
+      if (compteur) {
+        let actuel = parseInt(compteur.innerText) || 0;
+        compteur.innerText = actuel + 1;
+      }
     }
+  }
 }
-
 
 console.log(`
   
