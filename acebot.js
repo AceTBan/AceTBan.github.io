@@ -583,29 +583,29 @@ let invisibleSimplon = false;
 let invisibleIscod = false;
 
 function clicIscod(element) {
-  invisibleIscod = true;
-  element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
-  verifierCinephile();
+    invisibleIscod = true;
+    element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+    verifierCinephile();
 }
 
 function clicSimplon(element) {
-  invisibleSimplon = true;
-  element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
-  verifierCinephile();
+    invisibleSimplon = true;
+    element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+    verifierCinephile();
 }
 
 function verifierCinephile() {
-  if (invisibleSimplon && invisibleIscod) {
-    const badge = document.getElementById("badge-cinephile");
-    if (badge && !badge.classList.contains("active")) {
-      badge.classList.add("active");
-      const compteur = document.getElementById("compteur");
-      if (compteur) {
-        let actuel = parseInt(compteur.innerText) || 0;
-        compteur.innerText = actuel + 1;
-      }
+    if (invisibleSimplon && invisibleIscod) {
+        const badge = document.getElementById('badge-cinephile');
+        if (badge && !badge.classList.contains('active')) {
+            badge.classList.add('active');
+            const compteur = document.getElementById('compteur');
+            if (compteur) {
+                let actuel = parseInt(compteur.innerText) || 0;
+                compteur.innerText = actuel + 1;
+            }
+        }
     }
-  }
 }
 
 console.log(`
