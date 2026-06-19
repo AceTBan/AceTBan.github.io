@@ -607,6 +607,11 @@ function verifierCinephile() {
         }
     }
 }
+function clicVideoSimplon() {
+    // Ton code pour allumer le badge ici
+    const badge = document.getElementById('badge-cinephile');
+    if (badge) badge.classList.add('active');
+}
 
 console.log(`
   
