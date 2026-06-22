@@ -579,38 +579,33 @@ toggle.onclick = () => {
   }
 };
 
-let invisibleSimplon = false;
-let invisibleIscod = false;
+let videoSimplonCliquee = false;
+let videoIscodCliquee = false;
 
-function clicIscod(element) {
-    invisibleIscod = true;
-    element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+function clicVideoSimplon() {
+    videoSimplonCliquee = true;
     verifierCinephile();
 }
 
-function clicSimplon(element) {
-    invisibleSimplon = true;
-    element.remove(); // Supprime la plaque invisible pour laisser accès au vrai bouton Play
+function clicVideoIscod() {
+    videoIscodCliquee = true;
     verifierCinephile();
 }
 
 function verifierCinephile() {
-    if (invisibleSimplon && invisibleIscod) {
+    // Si les deux plaques invisibles ont été cliquées
+    if (videoSimplonCliquee && videoIscodCliquee) {
         const badge = document.getElementById('badge-cinephile');
         if (badge && !badge.classList.contains('active')) {
-            badge.classList.add('active');
+            badge.classList.add('active'); // Le badge s'allume
+            
             const compteur = document.getElementById('compteur');
             if (compteur) {
                 let actuel = parseInt(compteur.innerText) || 0;
-                compteur.innerText = actuel + 1;
+                compteur.innerText = actuel + 1; // +1 au compteur global
             }
         }
     }
-}
-function clicVideoSimplon() {
-    // Ton code pour allumer le badge ici
-    const badge = document.getElementById('badge-cinephile');
-    if (badge) badge.classList.add('active');
 }
 
 console.log(`
