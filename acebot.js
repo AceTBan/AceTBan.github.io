@@ -579,35 +579,36 @@ toggle.onclick = () => {
   }
 };
 
-let videoSimplonCliquee = false;
-let videoIscodCliquee = false;
+let invisibleSimplon = false;
+let invisibleIscod = false;
 
-function clicVideoSimplon() {
-    videoSimplonCliquee = true;
+function clicIscod(element) {
+    invisibleIscod = true;
+    element.remove(); // Supprime la plaque invisible sur ISCOD
     verifierCinephile();
 }
 
-function clicVideoIscod() {
-    videoIscodCliquee = true;
+function clicSimplon(element) {
+    invisibleSimplon = true;
+    element.remove(); // Supprime la plaque invisible sur SIMPLON
     verifierCinephile();
 }
 
 function verifierCinephile() {
-    // Si les deux plaques invisibles ont été cliquées
-    if (videoSimplonCliquee && videoIscodCliquee) {
+    // Si l'utilisateur a cliqué sur les deux plaques invisibles
+    if (invisibleSimplon && invisibleIscod) {
         const badge = document.getElementById('badge-cinephile');
         if (badge && !badge.classList.contains('active')) {
-            badge.classList.add('active'); // Le badge s'allume
+            badge.classList.add('active'); // Le badge passe au vert
             
             const compteur = document.getElementById('compteur');
             if (compteur) {
                 let actuel = parseInt(compteur.innerText) || 0;
-                compteur.innerText = actuel + 1; // +1 au compteur global
+                compteur.innerText = actuel + 1; // Le compteur global prend +1
             }
         }
     }
 }
-
 console.log(`
   
           (wouaf)
