@@ -568,6 +568,25 @@ toggle.onclick = () => {
     toggle.textContent = "🌙";
   }
 
+// On écoute tous les clics sur la page
+document.addEventListener('click', function(evenement) {
+    // Si l'élément cliqué est un <label> et qu'il contient le texte exact du choix secrect
+    // Remplacé "..." par le texte exact écrit dans le label
+    if (evenement.target.tagName === 'LABEL' && evenement.target.innerText.trim() === "age") {
+        
+        const badgeChatbot = document.getElementById('badge-curieux');
+        if (badgeChatbot && !badgeChatbot.classList.contains('active')) {
+            badgeChatbot.classList.add('active'); // On active le badge
+            
+            const compteur = document.getElementById('compteur');
+            if (compteur) {
+                let actuel = parseInt(compteur.innerText) || 0;
+                compteur.innerText = actuel + 1; // +1 au compteur global
+            }
+        }
+    }
+});
+
   // === CODE DES SUCCÈS ICI ===
   const badge = document.getElementById("badge-dark");
   if (badge) {
