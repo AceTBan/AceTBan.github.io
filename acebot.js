@@ -307,7 +307,20 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
     }, 1000);
   }
 
-  if (type === "source") {
+if (type === "source") {
+    // Code du badge intégré directement (ne peut pas bloquer le reste)
+    try {
+      const badgeChatbot = document.getElementById('badge-curieux');
+      if (badgeChatbot && !badgeChatbot.classList.contains('active')) {
+          badgeChatbot.classList.add('active');
+          const compteur = document.getElementById('compteur');
+          if (compteur) {
+              let actuel = parseInt(compteur.innerText) || 0;
+              compteur.innerText = actuel + 1;
+          }
+      }
+    } catch(e) { console.error(e); }
+
     botMessage(`
   Selon une étude réalisée par AssessFirst plateforme française d’évaluation prédictive utilisée pour le recrutement et la gestion des talents .
   `);
@@ -317,7 +330,7 @@ Elle permet simplement de bénéficier d’un accompagnement, et peut représent
         //    { label: " ", action: () => redirect(" ") },
         //    { label: " ", action: () => redirect(" ") },
         //    { label: " ", action: () => redirect(" ") },
-        { label: "Accueil", action: () => startAceBot() },
+                { label: "Accueil", action: () => startAceBot() },
       ]);
     }, 800);
   }
