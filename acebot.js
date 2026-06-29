@@ -128,7 +128,7 @@ function redirect(type) {
 
   if (type === "objectif") {
     botMessage(
-      "L’objectif est de décrocher une alternance en développement web ou en Conception et Développement d’Applications à partir de mars 2026. Intégrer une entreprise qui valorise l’autonomie, la montée en compétences et les projets concrets serait un véritable plus.",
+      "L’objectif est de décrocher une alternance en développement web ou en Conception et Développement d’Applications à partir d'octobre 2026. Intégrer une entreprise qui valorise l’autonomie, la montée en compétences et les projets concrets serait un véritable plus.",
     ); // Message du bot
 
     // Option supplementaire proposer après le message ...
@@ -360,7 +360,7 @@ Véhiculé, ce qui facilite les déplacements réguliers ou ponctuels.
       showOptions([
         { label: "Télétravail", action: () => redirect("télétravail") },
         { label: "Objectif professionnel", action: () => redirect("objectif") },
-        { label: "Profil professionnel", action: () => redirect("profil") },
+        { label: "Profil professionnel", action: () => redirect("posture_professionnel") },
         { label: "Accueil", action: () => startAceBot() },
       ]);
     }, 800);
