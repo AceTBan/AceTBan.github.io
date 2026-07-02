@@ -522,6 +522,7 @@ D'apres le nouveau décret d'apprentissage du 6 mars 2026 n°2026-168  `);
     }, 20000);
     setTimeout(() => {
       showOptions([
+        { label: "Autre Avantages.", action: () => redirect("POE") },
         { label: "Le contacter directement.", action: () => redirect("mail") },
         { label: "Retour RQTH", action: () => redirect("rqth") },
         { label: "Accueil", action: () => startAceBot() },
@@ -553,6 +554,24 @@ La recherche d’un emploi est devenue un travail à part entière : candidature
     }, 1500);
   }
 }
+
+  if (type === "POE") {
+    botMessage(`
+Une POE I (Préparation Opérationnelle à l'Emploi) est possible en amont de l'alternance`);
+    setTimeout(() => {
+      botMessage(`    
+ce dispositif permet une période de formation/tutorat de 400h (environ 3 mois) totalement prise en charge.
+Elle vous permet de me former spécifiquement à vos méthodes et outils internes, tout en bénéficiant d'une aide financière (environ 2000 €) pour le tutorat.
+      
+    `);
+    }, 4000);
+    setTimeout(() => {
+      showOptions([
+        { label: "Retour", action: () => startAceBot() },
+      ]);
+    }, 1500);
+  }
+
 
 // Affiche un message utilisateur dans une bulle alignée à droite
 function userMessage(text) {
