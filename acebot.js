@@ -553,7 +553,7 @@ La recherche d’un emploi est devenue un travail à part entière : candidature
       ]);
     }, 1500);
   }
-}
+
 
   if (type === "POE") {
     botMessage(`
@@ -561,7 +561,7 @@ Une POE I (Préparation Opérationnelle à l'Emploi) est possible en amont de l'
     setTimeout(() => {
       botMessage(`    
 ce dispositif permet une période de formation/tutorat de 400h (environ 3 mois) totalement prise en charge.
-Elle vous permet de me former spécifiquement à vos méthodes et outils internes, tout en bénéficiant d'une aide financière (environ 2000 €) pour le tutorat.
+Elle vous permet de former spécifiquement à vos méthodes et outils internes, tout en bénéficiant d'une aide financière (environ 2000 €) pour le tutorat.
       
     `);
     }, 4000);
@@ -571,6 +571,7 @@ Elle vous permet de me former spécifiquement à vos méthodes et outils interne
       ]);
     }, 1500);
   }
+}
 
 
 // Affiche un message utilisateur dans une bulle alignée à droite
