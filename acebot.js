@@ -624,6 +624,27 @@ function debloquerChatbot() {
   }
 };
 
+// crée une fonction globale que le visiteur peut taper dans sa console
+window.git = function(commande) {
+    if (commande === "status" || commande === "push" || commande === "commit") {
+        try {
+            const badgeGit = document.getElementById('badge-git');
+            if (badgeGit && !badgeGit.classList.contains('active')) {
+                badgeGit.classList.add('active');
+                const compteur = document.getElementById('compteur');
+                if (compteur) {
+                    let actuel = parseInt(compteur.innerText) || 0;
+                    compteur.innerText = actuel + 1;
+                }
+                return "Succès Git déverrouillé ! ";
+            } else {
+                return "Badge déjà actif ou introuvable.";
+            }
+        } catch(err) { return "Erreur lors de l'activation."; }
+    }
+    return "Commande Git inconnue sur ce portfolio. Essaie 'git status'.";
+};
+
 let invisibleSimplon = false;
 let invisibleIscod = false;
 
