@@ -618,10 +618,11 @@ function debloquerChatbot() {
   if (badge) {
     badge.classList.add("active");
   }
-  const compteur = document.getElementById("compteur");
-  if (compteur) {
-    compteur.innerText = "1"; // Le compteur passe à 1
-  }
+const compteur = document.getElementById('compteur');
+        if (compteur) {
+            let actuel = parseInt(compteur.innerText) || 0;
+            compteur.innerText = actuel + 1; // Ajoute +1 au compteur global
+        }
 };
 
 // crée une fonction globale que le visiteur peut taper dans sa console
