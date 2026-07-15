@@ -646,41 +646,36 @@ window.easter = function(commande) {
     return "Commande inconnue sur ce portfolio. Essaie 'easter egg'.";
 };
 
-//  garde en mémoire si la vidéo 1 et la vidéo 2 ont été cliquées
-let video1Cliquee = false;
-let video2Cliquee = false;
+let invisibleSimplon = false;
+let invisibleIscod = false;
 
-document.addEventListener('click', function(e) {
-    // Si on clique sur une couverture invisible de vidéo
-    if (e.target.classList.contains('couverture-yt')) {
-        try {
-            const numVideo = e.target.getAttribute('data-video');
+function clicIscod(element) {
+    invisibleIscod = true;
+    element.remove(); // Supprime la plaque invisible sur ISCOD
+    verifierCinephile();
+}
+
+function clicSimplon(element) {
+    invisibleSimplon = true;
+    element.remove(); // Supprime la plaque invisible sur SIMPLON
+    verifierCinephile();
+}
+
+function verifierCinephile() {
+    // Si l'utilisateur a cliqué sur les deux plaques invisibles
+    if (invisibleSimplon && invisibleIscod) {
+        const badge = document.getElementById('badge-cinephile');
+        if (badge && !badge.classList.contains('active')) {
+            badge.classList.add('active'); // Le badge passe au vert
             
-            //  note quelle vidéo a été vue
-            if (numVideo === "1") video1Cliquee = true;
-            if (numVideo === "2") video2Cliquee = true;
-            
-            //  fait disparaître l'élément invisible pour laisser l'accès à la vraie vidéo
-            e.target.style.display = 'none';
-            
-            // Si les DEUX vidéos ont été cliquées, on donne le badge
-            if (video1Cliquee && video2Cliquee) {
-                // Remplace 'badge-cinema' par l'ID exact de ton badge HTML pour les vidéos
-                const badgeVideo = document.getElementById('badge-cinema'); 
-                
-                if (badgeVideo && !badgeVideo.classList.contains('active')) {
-                    badgeVideo.classList.add('active'); // Allume le badge
-                    
-                    const compteur = document.getElementById('compteur');
-                    if (compteur) {
-                        let actuel = parseInt(compteur.innerText) || 0;
-                        compteur.innerText = actuel + 1; // +1 au compteur global
-                    }
-                }
+            const compteur = document.getElementById('compteur');
+            if (compteur) {
+                let actuel = parseInt(compteur.innerText) || 0;
+                compteur.innerText = actuel + 1; // Le compteur global prend +1
             }
-        } catch(err) { console.error(err); }
+        }
     }
-});
+}
 console.log(`
   
           (wouaf)
