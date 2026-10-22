@@ -588,6 +588,7 @@ function userMessage(text) {
 startAceBot();
 
 // Dark mode
+let darkSuccesDebloque = false;
 
 const toggle = document.getElementById("theme-toggle");
 const bot = document.getElementById("acebot");
@@ -614,6 +615,9 @@ function debloquerChatbot() {
 }
 
   // === CODE DES SUCCÈS ICI ===
+if (!darkSuccesDebloque) {
+darkSuccesDebloque = true;
+
   const badge = document.getElementById("badge-dark");
   if (badge) {
     badge.classList.add("active");
@@ -623,6 +627,7 @@ const compteur = document.getElementById('compteur');
             let actuel = parseInt(compteur.innerText) || 0;
             compteur.innerText = actuel + 1; // Ajoute +1 au compteur global
         }
+      }
 };
 
 // crée une fonction globale que le visiteur peut taper dans sa console
