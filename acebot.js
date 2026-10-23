@@ -631,25 +631,46 @@ const compteur = document.getElementById('compteur');
 };
 
 // crée une fonction globale que le visiteur peut taper dans sa console
-window.easter = function(commande) {
-    if (commande === "wouaf" || commande === "easter" || commande === "egg") {
-        try {
-            const badgeEgg = document.getElementById('badge-egg');
-            if (badgeEgg && !badgeEgg.classList.contains('active')) {
-                badgeEgg.classList.add('active');
-                const compteur = document.getElementById('compteur');
-                if (compteur) {
-                    let actuel = parseInt(compteur.innerText) || 0;
-                    compteur.innerText = actuel + 1;
-                }
-                return "Succès déverrouillé ! ";
-            } else {
-                return "Badge déjà actif ou introuvable.";
-            }
-        } catch(err) { return "Erreur lors de l'activation."; }
+//window.easter = function(commande) {
+//    if (commande === "wouaf" || commande === "easter" || commande === "egg") {
+//        try {
+//            const badgeEgg = document.getElementById('badge-egg');
+//            if (badgeEgg && !badgeEgg.classList.contains('active')) {
+//                badgeEgg.classList.add('active');
+//                const compteur = document.getElementById('compteur');
+//                if (compteur) {
+//                    let actuel = parseInt(compteur.innerText) || 0;
+//                    compteur.innerText = actuel + 1;
+//                }
+//                return "Succès déverrouillé ! ";
+//            } else {
+//                return "Badge déjà actif ou introuvable.";
+//            }
+//        } catch(err) { return "Erreur lors de l'activation."; }
+//    }
+//    return "Commande inconnue sur ce portfolio. Essaie 'easter egg'.";
+//};
+
+// Variable verrou pour éviter de spammer le succès Easter Egg
+let easterEggDebloque = false;
+
+// Fonction à déclencher au clic sur l'image
+function declencherEasterEgg() {
+    if (easterEggDebloque) return; // Si déjà débloqué, ne fait rien
+
+    const badgeEgg = document.getElementById('badge-egg');
+    if (badgeEgg && !badgeEgg.classList.contains('active')) {
+        badgeEgg.classList.add('active');
+        
+        const compteur = document.getElementById('compteur');
+        if (compteur) {
+            let actuel = parseInt(compteur.innerText) || 0;
+            compteur.innerText = actuel + 1;
+        }
+
+        easterEggDebloque = true; 
     }
-    return "Commande inconnue sur ce portfolio. Essaie 'easter egg'.";
-};
+}
 
 let invisibleSimplon = false;
 let invisibleIscod = false;
